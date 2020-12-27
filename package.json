@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "start": "node index.js",
+    "watch": "nodemon index.js"
+  },
+  "dependencies": {
+    "irc-upd": "^0.11.0",
+    "mqtt": "^4.2.6"
+  }
+}
