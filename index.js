@@ -30,7 +30,7 @@ mqttClient.on('message', (topic, message) => {
 /* IRC stuff */
 
 const ownNick = 'bbbot';
-const channel = '#revspace-test';
+const channel = '#revspace';
 const topicSeparator = ' % ';
 
 const bbbInstanceBaseURL = 'https://meet.nluug.nl';
@@ -65,7 +65,7 @@ client.addListener('topic', function (_channel, topic, nick) {
 });
 
 client.addListener('message', function (authorNick, channel, text) {
-    if (/!b\s?/.test(text)) {
+    if (/!b(?:\s|$)/.test(text)) {
         client.say(channel, `${authorNick}: ${bbbOnlineCount || 'no'} ${bbbOnlineCount == 1 ? 'user' : 'users'} online in BBB (${getBbbMeetingURL()})`);
     }
 });
