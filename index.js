@@ -7,7 +7,7 @@ IRC.Client.prototype.setTopic = function(target, text) {
 
 /* MQTT stuff */
 
-const mqttClient = MQTT.connect('mqtt://test.mosquitto.org');
+const mqttClient = MQTT.connect('mqtt://[2a0e:5700:4:11::1]');    // mosquitto.space.revspace.nl
 mqttClient.on('connect', _packet => {
     console.log('Connected to MQTT broker');
 });
@@ -15,7 +15,7 @@ mqttClient.on('connect', _packet => {
 mqttClient.subscribe('revspace/b', { rh: true }, error => error ? console.error('Could not subscribe to topic:', error) : null);
 
 let bbbOnlineCount;
-const getBbbStatus = () => bbbOnlineCount > 0 ? 'OPEN' : 'OFFLINE';
+const getBbbStatus = () => bbbOnlineCount > 0 ? 'OPEN' : 'LEEG';
 
 mqttClient.on('message', (topic, message) => {
     // console.debug('MQTT message:', topic, message);
